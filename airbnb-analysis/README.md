@@ -1,5 +1,11 @@
 # Airbnb Market Analysis
 
+## Executive Summary
+
+This project analyzed approximately 49,000 Airbnb listings in New York City using PostgreSQL and Python to identify pricing drivers, market concentration, and revenue opportunities.
+
+Key findings showed that location and room type were the strongest predictors of pricing, while professional operators managed a meaningful portion of available inventory.
+
 ## Objective
 
 Identify key drivers of Airbnb pricing and market concentration in New York City.
