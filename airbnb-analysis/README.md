@@ -4,31 +4,56 @@
 
 This project analyzed approximately 49,000 Airbnb listings in New York City using PostgreSQL and Python to identify pricing drivers, market concentration, and revenue opportunities.
 
-Key findings showed that location and room type were the strongest predictors of pricing, while professional operators managed a meaningful portion of available inventory.
+Results showed that location and accommodation type were the strongest pricing drivers. Manhattan commanded the highest average nightly rates while entire-home listings generated a substantial premium over private-room accommodations. The analysis also identified evidence of professional inventory management among a subset of hosts.
+
+---
 
 ## Objective
 
-Identify key drivers of Airbnb pricing and market concentration in New York City.
+Analyze Airbnb listing data to identify pricing trends, market concentration, and revenue opportunities within the New York City Airbnb marketplace.
+
+---
 
 ## Dataset
 
+New York City Airbnb Open Data
+
+---
+
 ## Tools
 
+- PostgreSQL
+- SQL
 - Python
 - Pandas
-- PostgreSQL
 - Jupyter Notebook
+- Matplotlib
+- Seaborn
 - Git
+- GitHub
+
+---
+
+## Skills Demonstrated
+
+- SQL Aggregation and Filtering
+- Window Functions
+- Exploratory Data Analysis (EDA)
+- Data Cleaning
+- Business Analytics
+- Data Visualization
+- Git Version Control
+- Documentation and Reporting
+
+---
 
 ## SQL Analysis
 
-The dataset was imported into PostgreSQL and analyzed using aggregation, filtering, grouping, and window functions to identify pricing trends, market concentration, and inventory characteristics across New York City Airbnb listings.
+The dataset was imported into PostgreSQL and analyzed using aggregation, grouping, filtering, and window functions to identify pricing trends and marketplace characteristics.
 
 ### Average Price by Borough
 
 **Business Question:** Which boroughs command the highest average nightly rates?
-
-Using SQL aggregation and grouping, average listing prices were calculated across each borough.
 
 **Result:**
 
@@ -42,13 +67,13 @@ Using SQL aggregation and grouping, average listing prices were calculated acros
 
 **Insight:**
 
-Manhattan recorded both the highest average nightly rate and the largest inventory of listings, making it the most economically significant Airbnb market in New York City.
+Manhattan recorded both the highest average nightly price and the largest inventory of listings, making it the most economically significant Airbnb market in New York City.
+
+---
 
 ### Average Price by Room Type
 
-**Business Question:** How does accommodation type influence nightly pricing?
-
-Average prices were calculated for each room category.
+**Business Question:** How does accommodation type influence pricing?
 
 **Result:**
 
@@ -60,13 +85,13 @@ Average prices were calculated for each room category.
 
 **Insight:**
 
-Entire-home listings generated the highest average nightly rates, commanding approximately a 136% premium over private-room listings. This suggests accommodation type is one of the strongest drivers of revenue potential.
+Entire-home listings generated approximately 136% higher nightly rates than private-room listings, suggesting room type is a major driver of revenue potential.
+
+---
 
 ### High-Value Neighborhoods
 
-**Business Question:** Which neighborhoods offer the highest pricing potential while maintaining meaningful market presence?
-
-Neighborhood-level pricing analysis was conducted for neighborhoods with at least 50 listings.
+**Business Question:** Which neighborhoods combine strong pricing with meaningful inventory?
 
 **Result:**
 
@@ -80,63 +105,125 @@ Neighborhood-level pricing analysis was conducted for neighborhoods with at leas
 
 **Insight:**
 
-Tribeca achieved the highest average nightly rate, while Midtown stood out due to its combination of premium pricing and substantial inventory. This suggests Midtown may offer the strongest revenue opportunity at scale.
+Tribeca achieved the highest average nightly rate, while Midtown combined premium pricing with substantial inventory volume, suggesting strong revenue potential at scale.
+
+---
 
 ### Host Concentration
 
-**Business Question:** Is inventory distributed among individual hosts or concentrated among professional operators?
-
-Hosts were ranked by total listing count.
+**Business Question:** Is inventory distributed among many hosts or concentrated among a small number of operators?
 
 **Result:**
 
-The largest host managed 327 listings, while several commercial operators maintained portfolios exceeding 90 listings.
+The largest host maintained 327 active listings, while several professional operators managed portfolios exceeding 90 listings.
 
 **Insight:**
 
-The presence of organizations such as Sonder, Blueground, and Corporate Housing suggests that a meaningful portion of Airbnb inventory is professionally managed rather than operating as traditional peer-to-peer home sharing.
+Organizations such as Sonder, Blueground, and Corporate Housing indicate that a meaningful portion of Airbnb inventory is professionally managed rather than operating solely as a peer-to-peer marketplace.
 
-## Key Findings
+---
 
-- Manhattan had the highest average nightly rate ($196.88) and the largest inventory of listings.
-- Entire-home listings averaged $211.79 per night, generating approximately 136% higher rates than private-room listings.
-- Location and accommodation type showed a stronger relationship with pricing than review volume, availability, or minimum-night requirements.
-- A meaningful share of inventory appears to be controlled by professional operators, with the largest host managing 327 listings.
+## Python Analysis
 
-## Findings
+Python was used to perform exploratory data analysis, evaluate data quality, identify missing values, calculate correlations, and generate visualizations.
 
-### Pricing by Borough
+### Data Quality Assessment
 
-Manhattan listings averaged $196.88 per night, exceeding Brooklyn listings by approximately 58% and Bronx listings by more than 100%.
-
-### Pricing by Room Type
-
-Entire-home listings averaged $211.79 per night, approximately 2.4 times higher than private-room listings.
+Review-related fields contained approximately 10,000 missing values. Further investigation suggested these missing records likely corresponded to listings with little or no review activity rather than data-quality issues.
 
 ### Correlation Analysis
 
-Correlation analysis found little relationship between price and review volume (-0.048), availability (0.082), or minimum-night requirements (0.043). This suggests that location and accommodation type have a greater influence on pricing than these operational variables.
+Correlations between price and several operational variables were found to be weak:
 
-### High-Value Neighborhoods
+| Variable | Correlation with Price |
+|----------|----------:|
+| Number of Reviews | -0.048 |
+| Availability | 0.082 |
+| Minimum Nights | 0.043 |
 
-Tribeca recorded the highest average nightly rate ($490.64), followed by Battery Park City ($367.56) and the Flatiron District ($341.93).
+**Insight:**
 
-Midtown emerged as a particularly attractive market due to its combination of high average pricing ($282.72) and substantial inventory (1,545 listings), suggesting strong revenue potential at scale.
+Location and room type appeared to have a much stronger influence on pricing than review volume, availability, or minimum-night requirements.
+
+---
+
+## Visualizations
+
+### Average Price by Borough
+
+![Average Price by Borough](figures/borough_prices.png)
+
+### Average Price by Room Type
+
+![Average Price by Room Type](figures/room_type_prices.png)
+
+---
+
+## Key Findings
+
+1. Manhattan had the highest average nightly rate ($196.88) and the largest listing inventory.
+2. Entire-home listings generated approximately 136% higher rates than private-room listings.
+3. Location and room type were stronger pricing drivers than review volume, availability, or minimum-night requirements.
+4. High-value neighborhoods included Tribeca, Battery Park City, SoHo, and Midtown.
+5. A meaningful portion of marketplace inventory appears to be controlled by professional operators.
+
+---
 
 ## Business Recommendations
 
 ### Pricing Strategy
 
-Hosts seeking to maximize revenue should prioritize entire-home listings where feasible, as these command substantially higher average nightly rates than private or shared accommodations.
+Hosts seeking to maximize revenue should prioritize entire-home listings where feasible, as these command substantially higher nightly rates.
 
 ### Market Selection
 
-Manhattan remains the most economically significant Airbnb market due to its combination of premium pricing and large inventory volume.
+Manhattan remains the strongest market due to its combination of premium pricing and inventory volume.
 
 ### Neighborhood Opportunity
 
-Midtown represents a particularly attractive market due to its balance of high average pricing and substantial listing activity.
+Midtown appears particularly attractive because of its balance of high average pricing and significant listing activity.
 
 ### Marketplace Structure
 
-The presence of large commercial operators suggests the platform functions as both a peer-to-peer marketplace and a professional hospitality channel.
+The presence of large commercial operators suggests Airbnb functions as both a peer-to-peer marketplace and a professional hospitality platform.
+
+---
+
+## Repository Structure
+
+```text
+airbnb-analysis/
+│
+├── data/
+├── figures/
+├── notebooks/
+├── sql/
+├── README.md
+│
+├── sql/
+│   ├── 01_price_by_borough.sql
+│   ├── 02_price_by_room_type.sql
+│   ├── 03_top_neighbourhoods.sql
+│   ├── 04_host_concentration.sql
+│   ├── 05_neighbourhood_pricing_rank.sql
+│   └── 06_professional_hosts.sql
+│
+└── notebooks/
+    └── airbnb_analysis.ipynb
+```
+
+---
+
+## Future Work
+
+- Investigate price outliers and their effect on market averages
+- Estimate occupancy and potential annual revenue
+- Develop predictive models for listing prices
+- Conduct geographic clustering analysis
+- Build an interactive dashboard using Power BI
+
+---
+
+## Status
+
+✅ Complete (Version 1.0)
