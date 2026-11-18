@@ -159,6 +159,23 @@ Location and room type appeared to have a much stronger influence on pricing tha
 
 ---
 
+## Power BI Dashboard
+
+A Power BI dashboard was developed to provide an executive summary of the NYC Airbnb marketplace.
+
+The dashboard includes:
+
+- Total listings
+- Average nightly price
+- Price distribution by borough
+- Listing distribution by room type
+- Top neighborhoods by average price
+- Top hosts by listing count
+
+Key dashboard findings aligned with the SQL and Python analyses and provided an interactive business intelligence layer for stakeholders.
+
+---
+
 ## Key Findings
 
 1. Manhattan had the highest average nightly rate ($196.88) and the largest listing inventory.
